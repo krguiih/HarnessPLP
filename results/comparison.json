@@ -1,0 +1,95 @@
+{
+  "generated_at_utc": "2026-11-23T18:56:49.587635+00:00",
+  "method": "comparison of prewritten didactic implementations; not a controlled AI-agent trial",
+  "human_interventions_note": "Not observed. A null does not mean zero.",
+  "baseline": {
+    "passed": 2,
+    "errors": 6,
+    "architectural_violations": 7,
+    "violations": [
+      "OrderPlaced: dataclass não é frozen",
+      "PaymentConfirmed: dataclass não é frozen",
+      "OrderShipped: dataclass não é frozen",
+      "OrderState: dataclass não é frozen",
+      "Domínio modifica atributos diretamente",
+      "Domínio modifica atributos diretamente",
+      "Domínio modifica atributos diretamente"
+    ],
+    "scenarios": {
+      "create": {
+        "passed": true,
+        "error": null
+      },
+      "flow": {
+        "passed": true,
+        "error": null
+      },
+      "no_payment_before_create": {
+        "passed": false,
+        "error": "AssertionError: Pagamento antes de criar pedido foi aceito"
+      },
+      "no_shipping_before_payment": {
+        "passed": false,
+        "error": "AssertionError: Envio antes do pagamento foi aceito"
+      },
+      "idempotent": {
+        "passed": false,
+        "error": "AssertionError: "
+      },
+      "immutable_events": {
+        "passed": false,
+        "error": "AssertionError: Evento permitiu mutação"
+      },
+      "positive_amount": {
+        "passed": false,
+        "error": "AssertionError: Valor negativo foi aceito"
+      },
+      "no_cross_order": {
+        "passed": false,
+        "error": "AssertionError: Evento de outro pedido foi aceito"
+      }
+    },
+    "human_interventions": null
+  },
+  "harness": {
+    "passed": 8,
+    "errors": 0,
+    "architectural_violations": 0,
+    "violations": [],
+    "scenarios": {
+      "create": {
+        "passed": true,
+        "error": null
+      },
+      "flow": {
+        "passed": true,
+        "error": null
+      },
+      "no_payment_before_create": {
+        "passed": true,
+        "error": null
+      },
+      "no_shipping_before_payment": {
+        "passed": true,
+        "error": null
+      },
+      "idempotent": {
+        "passed": true,
+        "error": null
+      },
+      "immutable_events": {
+        "passed": true,
+        "error": null
+      },
+      "positive_amount": {
+        "passed": true,
+        "error": null
+      },
+      "no_cross_order": {
+        "passed": true,
+        "error": null
+      }
+    },
+    "human_interventions": null
+  }
+}
